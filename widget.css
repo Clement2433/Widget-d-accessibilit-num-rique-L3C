@@ -1,0 +1,89 @@
+/* widget.css - L3C Accessibility Widget Styles */
+:root {
+  --l3c-color: #007BFF;
+}
+.l3c-widget-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--l3c-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 9999;
+}
+.l3c-widget-btn:hover,
+.l3c-widget-btn:focus {
+  transform: scale(1.1);
+  outline: none;
+}
+.l3c-widget-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  transition: opacity 0.3s ease;
+}
+.l3c-widget-overlay[aria-hidden="false"] {
+  display: flex;
+}
+.l3c-widget-panel {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 320px;
+  width: 90%;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+.l3c-widget-panel button {
+  background: #f5f5f5;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  font-size: 14px;
+}
+.l3c-widget-panel button:hover,
+.l3c-widget-panel button:focus {
+  background: #e0e0e0;
+  outline: 2px solid var(--l3c-color);
+}
+.l3c-widget-panel svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 6px;
+  fill: var(--l3c-color);
+}
+.l3c-widget-toast {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #323232;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+.l3c-widget-toast.show {
+  opacity: 1;
+}
