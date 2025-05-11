@@ -1,0 +1,110 @@
+/* widget.css - Phase 1: Visual Design & Ergonomics */
+:root {
+  --l3c-color: #007BFF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --l3c-color: #3399FF;
+  }
+}
+.l3c-widget-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--l3c-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 9999;
+}
+.l3c-widget-btn:hover,
+.l3c-widget-btn:focus {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  outline: none;
+}
+.l3c-widget-btn.pulse {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 rgba(0,123,255, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(0,123,255, 0); }
+  100% { box-shadow: 0 0 0 rgba(0,123,255, 0); }
+}
+
+/* Position variants */
+.l3c-pos-top-left { top: 20px; left: 20px; bottom: auto; right: auto; }
+.l3c-pos-top-right { top: 20px; right: 20px; bottom: auto; left: auto; }
+.l3c-pos-bottom-left { bottom: 20px; left: 20px; top: auto; right: auto; }
+.l3c-pos-bottom-right { bottom: 20px; right: 20px; top: auto; left: auto; }
+
+/* Panel header */
+.l3c-widget-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.l3c-widget-panel-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  line-height: 1;
+}
+.l3c-widget-panel-close:focus {
+  outline: 2px solid var(--l3c-color);
+}
+
+/* Panel buttons as cards */
+.l3c-widget-panel {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 90%;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 12px;
+}
+.l3c-widget-panel button {
+  background: #f7f7f7;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.l3c-widget-panel button:hover,
+.l3c-widget-panel button:focus {
+  background: #eaeaea;
+  transform: translateY(-2px);
+  outline: 2px solid var(--l3c-color);
+}
+.l3c-widget-panel button svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 6px;
+  fill: var(--l3c-color);
+}
+
+/* Keyboard focus indicator */
+.l3c-widget-panel button:focus {
+  outline-offset: 2px;
+}
